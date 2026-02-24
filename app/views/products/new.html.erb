@@ -1,13 +1,5 @@
 <h1>New Product</h1>
 
-<%= form_with model: @product do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<%= render "form", product: @product%>
+<%= link_to "Cancel", products_path %>
 
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<%end%>
