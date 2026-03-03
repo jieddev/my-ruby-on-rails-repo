@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  specialization: MyString
 
 two:
   name: MyString
-  specialization: MyString
