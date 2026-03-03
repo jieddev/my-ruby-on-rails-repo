@@ -3,3 +3,19 @@
 
 
 <%= link_to "Your created events", user_show_path %>
+
+
+<%= form_with model: @event do |form| %>
+  <br>
+  <%= form.label :title, "Title: " %> 
+  <%= form.text_field :title %>
+  
+  <br>
+  <%= form.label :description %> 
+  <%= form.text_area :description%>
+
+  <br>
+  
+  <%= form.submit 'Submit', disable_with: 'Submiting...' %>
+
+  <%end%>
