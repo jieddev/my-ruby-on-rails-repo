@@ -1,9 +1,21 @@
 <h1>Your Events </h1>
 <%# <p>Find me in app/views/user/show.html.erb</p> %>
 
+<%= link_to 'Create an event', events_path %>
+<%= link_to "Attend an event", event_attendances_path %>
+
 <% @events.each do |event| %>
   <h3> <%= event.title %> </h3> 
   <p><%= event.description %></p>
+  
+  <%= link_to "Check Event", event_path(event.id)%>
 <%end%>
 
-<%= link_to 'Create an event', events_path %>
+<h1>Attended Events: </h1>
+
+<% @attended_events.each do |attended_event| %>
+  <h3> <%= attended_event.attended_event.title %> </h3> 
+  <p> <%= attended_event.attended_event.description %><p>
+
+  <%= link_to "Check Event", event_path(attended_event.attended_event.id)%>
+<%end%>

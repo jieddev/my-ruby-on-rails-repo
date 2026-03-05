@@ -1,4 +1,11 @@
+<%= link_to "Back to Events", events_path%>
+
 <p>Titile: <%= @event.title %></p>
 <p>Description: <%= @event.description %></p>
 
-<%= link_to "Back to Events", events_path%>
+
+<h2>List of Attendees: </h2>
+
+<% @attendees.each do |attendee| %>
+  <%= attendee.attendee.email %> <br>
+<%end%>

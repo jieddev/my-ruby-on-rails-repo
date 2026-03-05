@@ -1,0 +1,13 @@
+<h1>Attend an Event now</h1>
+
+<% @events.each do |event| %>
+  <p>Title: <%= event.title %> </p>
+  <p>Description: <%= event.description %> </p>
+
+  <%# <%= link_to 'Attend Event', event_attendances_path(event_id: event.id), method: :post %>
+  
+  <%= form_with url: event_attendances_path, method: :post do |form| %>
+    <%= form.hidden_field :event_id, value: event.id %>
+    <%= form.submit 'Attend Event', disable_with: 'Attend Eventing...' %>
+  <%end%>
+<%end%>

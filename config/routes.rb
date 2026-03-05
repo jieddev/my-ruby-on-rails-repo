@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "events#index"
   resources :events
+  resources :event_attendances
 end

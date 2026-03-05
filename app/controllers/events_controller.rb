@@ -9,6 +9,9 @@ class EventsController < ApplicationController
 
   def show 
     @event = Event.find(params[:id])
+
+    @attendees = EventAttendance.where(attended_event: params[:id])
+
   end
 
 
