@@ -16,6 +16,33 @@
 <% @attended_events.each do |attended_event| %>
   <h3> <%= attended_event.attended_event.title %> </h3> 
   <p> <%= attended_event.attended_event.description %><p>
+  <p> <%= attended_event.attended_event.date %><p>
 
   <%= link_to "Check Event", event_path(attended_event.attended_event.id)%>
 <%end%>
+
+
+<h2>--- Upcoming Events: </h2>
+
+<% @attended_events.each do |attended_event| %>
+  <% if attended_event.attended_event.date > DateTime.now  %>
+    <h3> <%= attended_event.attended_event.title %> </h3> 
+    <p> <%= attended_event.attended_event.description %><p>
+
+    <%= link_to "Check Event", event_path(attended_event.attended_event.id)%>
+  <%end%>
+<%end%>
+
+<h2>--- Past Events: </h2>
+
+
+<% @attended_events.each do |attended_event| %>
+  <% if attended_event.attended_event.date < DateTime.now  %>
+    <h3> <%= attended_event.attended_event.title %> </h3> 
+    <p> <%= attended_event.attended_event.description %><p>
+
+    <%= link_to "Check Event", event_path(attended_event.attended_event.id)%>
+  <%end%>
+<%end%>
+
+
