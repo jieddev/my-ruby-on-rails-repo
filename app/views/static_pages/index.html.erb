@@ -1,0 +1,17 @@
+<h1>Input a valid ID to get Collections from Pexels: </h1>
+
+<%= form_with(url:"static_pages", method: "get") do |f| %>
+  <%= f.label :ID%>
+  <%= f.text_field :collection_id %>
+
+  <%= f.submit 'Submit', disable_with: 'Submiting...' %>
+
+<%end%>
+
+<% if @media %>
+  <% @media["media"]&.each do |item| %>
+    <% if item["type"] == "Photo" %>
+      <img src="<%= item["src"]["medium"] %>" alt="<%= item["alt"] %>">
+    <% end %>
+  <% end %>
+<% end %>
